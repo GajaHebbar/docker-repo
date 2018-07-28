@@ -1,0 +1,49 @@
+Containers are usually immutable and ephemeral
+“Immutable Infrastructure” : Only Re deploy Containers, never change.
+Separation of Concerns
+Persistent Data – Problems for Containers  with Databases
+Two Solutions:
+1)	Volumes
+2)	Bind Mounts
+Volumes – Make special location outside of container UFS
+Bind Mounts – link container path to host path
+Volume of Mysql – 3 ways of Creation
+1)	This command tells docker that when you start a container then create a volume and assign it to the container.
+2)	Volume needs manual deletion
+3)	Volumes Out Live the Container
+Specify Volume Information in DockerFile
+--------------------------------------------------------
+Volume /var/lib/msql
+Lab 20: Volumes Lab
+docker pull mysql
+docker image inspect mysql – Notice the Volume information in the config area
+docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True mysql
+docker container ls
+docker container inspect mysql - Notice the Volume information in the config area
+docker volume ls 
+docker volume inspect <Volume_Name>
+
+
+Lab 20: Volumes outlive the containers
+docker container run -d --name mysql2 -e MYSQL_ALLOW_EMPTY_PASSWORD=True mysql
+docker volume ls 
+docker container stop mysql
+docker container stop mysql2
+docker volume ls 
+docker container rm mysql mysql2
+docker volume ls
+
+Lab 20: Named Volume
+docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql
+docker volume ls
+docker volume inspect mysql-db
+
+Lab 20: Create a container with the same volume
+docker container rm -f mysql
+docker container run -d --name mysql3 -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql
+docker container inspect mysql3
+docker volume ls
+docker volume inspect mysql-db
+
+Lab 20: Create a container with the same volume
+docker volume create <Volume_Name>

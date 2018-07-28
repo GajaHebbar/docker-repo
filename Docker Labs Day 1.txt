@@ -1,0 +1,140 @@
+Lab1 : Start an Nginx Webserver
+====================================
+docker container run --publish 80:80 --name webserver --detach nginx
+1) Download image 'nginx' from Docker Hub.
+2) Started a new container from that image.
+3) Opened port 80 on the host IP.
+4) Route the traffic to the container IP,port 80.
+5) --detach = Starts in detach mode
+6) --name   = Name of your Container
+
+Lab 2: Docker Useful Commands 
+=====================================
+a) List the total number of running Docker Containers
+   	docker container ls
+b) Stop the Docker Container
+   	docker container stop <ContainerID>
+c) Check no containers available
+   	docker container ls -
+d) This lists down the all the 
+   	docker container ls -a
+e) Logs for containers
+   	docker container logs <ContainerName/ContainerID>
+f) List the Process running inside your containers
+   	docker container top <ContainerName/ContainerID>
+g) Remove all stopped container instance
+   	docker container rm <ContainerName/ContainerID> <ContainerName/ContainerID> ...
+h) Remove all running and stoppped container instances
+	docker container rm -f <ContainerName/ContainerID> <ContainerName/ContainerID> ...
+
+Lab 3: Start a Mongo DB
+====================================
+docker run --name mongo -d mongo
+Lists the processes under mongo db container
+docker top mongo
+
+Lab 4 Assignment
+====================
+Start Mysql DB
+	docker container run -d -p 3306:3306 --name db -e MYSQL_RANDOM_ROOT_PASSWORD=yes mysql
+	docker container logs db
+	Find the GENERATED Root Password
+Start httpd
+docker container run -d --name webserver -p 8080:80 httpd
+
+Start nginx
+docker container run -d --name proxy -p 80:80 nginx
+
+docker ps
+Test 
+curl localhost      - Niginx
+curl localhost:8080 - Apache
+
+Clean Up
+docker container stop <ContainerName/ContainerID> <ContainerName/ContainerID> <ContainerName/ContainerID>
+
+Lab 5: What's Going on in Containers
+==========================================
+docker container run -d -p 3306:3306 --name db -e MYSQL_RANDOM_ROOT_PASSWORD=yes mysql
+docker container run -d --name proxy -p 80:80 nginx
+
+docker container ls
+
+List the Processes running in the containers
+docker container top mysql
+docker container top nginx
+
+To find the metadata about the container(startup config,volumes,networking etc) use Inspect
+docker container inspect mysql
+
+To Find the live performance data of our containers
+docker container stats
+
+
+Lab 6 : Getting a Shell Inside Containers
+==============================================
+docker container run -it 	- starts a new container interactively
+docker container exec -it - run additional command in existing container
+
+docker container run -it --name proxy nginx bash
+
+docker container run -it --name ubuntu ubuntu
+apt-get update
+apt-get install -y curl
+
+Attach to an existing container while start
+docker container start -ai ubuntu
+
+----------
+docker container exec -it mysql bash
+ps aux - to list the processes inside a container
+
+
+Lab 7 : Start an Alpine Distribution
+=========================================
+docker pull alpine
+docker image ls
+
+docker container run -it alpine bash
+Error - As bash is not present
+
+docker container run -it alpine sh
+
+Lab 8 : Docker Networking
+========================
+docker container run -p 80:80 --name webhost -d nginx
+To see the running port of your Docker Container
+docker container port webhost
+To see the IP address of your Docker Container
+docker container inspect --format '{{ .NetworkSettings.IPAddress }}'
+
+Inspect the bridge network
+docker container inspect bridge
+
+Create your own network
+docker network create my_app_net
+
+Start a nginx with newly created network
+docker container run -d -p 80:80 --name new_nginx --network my_app_net nginx
+
+Inspect the bridge network
+docker container inspect my_app_net
+
+docker network connect <containerID>
+docker container inspect containerID
+
+docker network disconnect <containerID>
+docker container inspect containerID
+
+
+
+Lab 9 : DNS
+===========
+docker container ls
+
+docker network inspect <containerID>
+docker container run -d --name my_nginx --network my_app_net nginx
+
+docker network inspect <containerID>
+
+docker container exec -it my_nginx ping new_nginx
