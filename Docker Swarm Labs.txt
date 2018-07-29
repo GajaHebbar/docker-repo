@@ -1,0 +1,55 @@
+Lab 1: Check if Swarm Mode active or not
+----------------------------------------
+docker info
+
+O/P: Swarm:inactive (By default Swarm mode is not enabled)
+
+Lab 2: Start Swarm Mode
+----------------------------------------
+docker swarm init
+
+docker node ls
+
+Lab 3: Create an alpine service
+----------------------------------------
+docker service --help
+docker service create alpine ping 8.8.8.8
+
+docker service ls
+
+docler service ps <Sevice_Name> ==> Shows us the tasks or containers in the service.
+
+docker container ls
+
+
+Lab 4: Create 3 replicas
+------------------------------------------
+docker service update <service_id> --replicas 3
+
+docker service ps <Sevice_Name> ==> Shows us the 3 tasks or 3 containers in the service.
+
+Lab 5: docker service update --help
+-------------------------------------------
+
+Lab 6: Remove one container and check the replica status
+----------------------------------------------
+docker container ls
+docker container rm -f <ContainerID>
+docker service ls
+docker service ls
+
+docker service ps <Sevice_Name>
+
+
+Lab 7: Docker remove Service
+------------------------------------------------
+docker service rm <Service_Name>
+docker container ls
+
+
+
+
+
+
+
+ 

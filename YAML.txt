@@ -1,0 +1,72 @@
+YAML - YAML is ain't a  markup language.
+This is a data serialization language which means basically it is used to store information about different thing.
+We can use YAML to define Key:Value pairs things like Variables,Lists and Objects.
+YAML is very similar to another language call JSON
+YAML places huge emphasis on User Friendliness and Redability.
+SO All YAML code is designed for Super clean and Super redable.
+
+.yml or .YAML
+
+The scope is defined by indententaion.
+
+Each Item in the list uses a hyphen or square curly braces.
+
+Lab 1: Add Comments to your YAML
+
+
+Lab2: Person YAML
+
+person:
+    # Anchor the value name
+    name: &name "Mike"\
+    occupation: 'programmer'
+    age: 23
+    gpa: 3.5
+    fav_num: 1e+10
+    male :true
+    birthday: 1988-11-14 14:33:22    #ISO 8601
+    flaws: null
+    # Defining a list
+    hobbies:
+        - hiking
+        - movies
+        - riding bikes
+    hobbies: ["hiking","movies","riding"]
+    # Defining Objects inside a list
+    friends:
+        - name: "Stephen"
+          age: 22
+        - name: "Anup"
+          age: 33
+        - {name: "Pramod",age: 22}
+    # Greater than symbol tells YAML to render the Text in a single Line
+    description: >
+        HelloCourse Cube
+        BTM
+        Marathahalli
+        Kalyannagar
+    # Vertical bar preserves the Formating
+    signature: |
+        Mike
+        Girafe Academy
+    # Accessing the anchored value
+    id: *name    # Id will have the value of Name
+    
+    # Anchor Key Value Pairs
+    base: &base
+        var1: value1
+    
+    # Anchor the key value pair in another object foo using << sign
+        foo:
+          <<: *base
+          var2: vaule1
+
+      
+
+      
+person.name
+person.age
+    
+
+    
+    

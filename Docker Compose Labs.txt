@@ -1,0 +1,4 @@
+sudo rm /usr/local/bin/docker-compose
+sudo yum -y install python-pip
+sudo pip install docker-compose
+
