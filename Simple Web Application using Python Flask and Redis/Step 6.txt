@@ -1,0 +1,21 @@
+Fill the simple_app/docker-compose.yml file with the following code:
+======================================================================
+
+version: '3'
+services:
+  web:
+    build: ./content
+    ports:
+     - "5000:5000"
+    volumes:
+     - ./content/code:/code
+  redis:
+    image: "redis:alpine"
+
+
+
+O/P
+====
+http://localhost:5000/
+
+If you refresh the page a few times, it should reflect the number of visits.  You can check the status of services or containers running.

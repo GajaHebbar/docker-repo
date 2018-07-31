@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  distro:
+    image: alpine
+    container_name: Alpine_Distro
+    restart: always
+    entrypoint: tail -f /dev/null
+
+  database:
+    image: postgres:latest
+    container_name: postgres_db
+    volumes:
+      - data:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+  web:
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - .:/usr/share/nginx/html
+    ports:
+      - "8080:80"
+    links:
+      - database:db
+      - distro
+volumes:
+  data:
+    external: true
