@@ -1,0 +1,140 @@
+Lab1: Student YAML
+-------------------
+student:
+    # String
+    name: Anup
+    # Integer
+    age: 23
+    # Floating Point Number
+    salary: 5.2
+    # Exponential
+    pi: 1e + 10
+    # Boolean
+    flag: true
+    #Date
+    dob: 1988-11-14 07:11:23
+student.name
+student.age
+
+Lab2: Nested Student YAML
+---------------------------
+ student:
+    # String
+        name: Anup
+    # Integer
+            age: 23
+    # Floating Point Number
+            salary: 5.2
+    # Exponential
+        pi: 1e + 10
+    # Boolean
+            flag: true
+    #Date
+        dob: 1988-11-14 07:11:23
+   
+          
+student.name
+## Wrong - student.age        
+student.name.age
+
+Lab3: Student List YAML
+------------------------
+student:
+    # String
+    name: Anup
+    # Integer
+    age: 23
+    # Floating Point Number
+    salary: 5.2
+    # Exponential
+    pi: 1e + 10
+    # Boolean
+    flag: true
+    #Date
+    dob: 1988-11-14 07:11:23
+    #List    
+    Address: 
+        - BTM
+        - Marathahalli
+        - Kalyannagar
+    #List    
+    Hobbies: ["Biking","Reading","Sleeping"]
+    
+student.Address[0]
+student.Address[1]
+student.Address[2]
+
+student.Hobbies[0]
+student.Hobbies[1]
+student.Hobbies[2]
+
+Lab4: Student Description YAML
+-------------------------------
+student:
+    # String
+    name: Anup
+    # Integer
+    age: 23
+    # Floating Point Number
+    salary: 5.2
+    # Exponential
+    pi: 1e + 10
+    # Boolean
+    flag: true
+    #Date
+    dob: 1988-11-14 07:11:23
+    #Description
+    description: >
+        Hello CourseCube 
+        Students to 
+        YAML Class
+# > Symbol O/p Hello CourseCube Students to YAML Class
+    #Preserve My Formatting
+    formatting: |
+        Hello CourseCube 
+        Students to 
+        YAML Class
+# |  Symbol O/p will preserve the formatting
+        
+
+Lab5: Student Anchoring or Aliasing YAML one value
+---------------------------------------------------
+student:
+    # String ; And Anchoring a value using & symbol
+    name:&name Anup
+    # Integer
+    age: 23
+    # Floating Point Number
+    salary: 5.2
+    # Exponential
+    pi: 1e + 10
+    # Boolean
+    flag: true
+    #Date
+    dob: 1988-11-14 07:11:23
+    #ID Accessing the anchored vaulue using * symbol
+    id: *name + 10
+
+Lab6: Student Key Value pair
+-----------------------------
+student:
+    # String
+    name: Anup
+    # Integer
+    age: 23
+    # Floating Point Number
+    salary: 5.2
+    # Exponential
+    pi: 1e + 10
+    # Boolean
+    flag: true
+    #Date
+    dob: 1988-11-14 07:11:23
+    Address: &address
+        Key1: value1
+    NewAddress: 
+        <<: *address
+        Key2: value2
+        
+# student.NewAddress.Key1 ==> value1
+
