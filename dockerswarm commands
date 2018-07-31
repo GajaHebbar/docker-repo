@@ -1,0 +1,61 @@
+Swarm Commands
+---------------
+  102  docker swarm init
+  103  docker node ls
+  104  docker node --help
+  105  docker swarm --help
+  106  docker service --help
+  107  docker swarm --help
+  108  clear
+  109  docker service create alpine ping 8.8.8.8
+  110  docker service ls
+  111  docker service ps cranky_bohr
+  112  docker service ps cranky_bohr
+  113  hostname
+  114  docker container ls
+  115  docker service update r2dew2kli203 --replicas 3
+  116  docker service ls
+  117  docker service ps r2dew2kli203
+  118  docker service ps r2dew2kli203
+  119  docker container ls
+  120  docker container rm -f d5b86454f0ec
+  121  docker service ps r2dew2kli203
+  122  docker service ps r2dew2kli203
+  123  docker service ls
+  124  docker service ls
+  125  docker service rm cranky_bohr
+  126  docker service ls
+  127  docker container ls
+  128  docker container ls
+  129  history
+  130  systemctl status docker
+  131  ipconfig
+  132  ifconfig
+  133  hostip
+  134  ping 13.232.188.7
+  135  dokcer info
+  136  docker info
+  137  docker node ls
+  138  docker node ls
+  139  clear
+  140  docker node ls
+  141  docker node update --role manager ip-172-31-6-187.ap-south-1.compute.internal
+  142  docker node ls
+  143  docker node ls
+  144  docker node ls
+  145  docker swarm jion-token manager
+  146  docker swarm join-token manager
+  147  docker ps
+  148  docker service create --replicas 3 alpine ping 8.8.8.8
+  149  docker service ls
+  150  docker service unruffled_snyder ps
+  151  docker service ls
+  152  docker node ps
+  153  docker node ps
+  154  clear
+  155  docker node ps
+  156  docker node ls
+  157  docker node ip-172-31-6-187.ap-south-1.compute.internal ps
+  158  docker node ip-172-31-6-187.ap-south-1.compute.internal ls
+  159  docker node ps ip-172-31-6-187.ap-south-1.compute.internal
+
