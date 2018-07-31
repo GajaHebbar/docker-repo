@@ -1,0 +1,30 @@
+ Docker Swarm Commands
+ 100  docker info
+  101  clear
+  102  docker swarm init
+  103  docker node ls
+  104  docker node --help
+  105  docker swarm --help
+  106  docker service --help
+  107  docker swarm --help
+  108  clear
+  109  docker service create alpine ping 8.8.8.8
+  110  docker service ls
+  111  docker service ps cranky_bohr
+  112  docker service ps cranky_bohr
+  113  hostname
+  114  docker container ls
+  115  docker service update r2dew2kli203 --replicas 3
+  116  docker service ls
+  117  docker service ps r2dew2kli203
+  118  docker service ps r2dew2kli203
+  119  docker container ls
+  120  docker container rm -f d5b86454f0ec
+  121  docker service ps r2dew2kli203
+  122  docker service ps r2dew2kli203
+  123  docker service ls
+  124  docker service ls
+  125  docker service rm cranky_bohr
+  126  docker service ls
+  127  docker container ls
+  128  docker container ls
